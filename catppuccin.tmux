@@ -152,7 +152,11 @@ main() {
 
   set status-left ""
 
-  set status-right "#{pomodoro_status},${right_column1},${right_column2}"
+  local pomodoro_extra
+  readonly pomodoro_extra="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue] #[fg=$thm_fg,bg=$thm_gray] #{pomodoro_status} "
+
+
+  set status-right "${pomodoro_extra}${right_column1},${right_column2}"
 
   setw window-status-format "${window_status_format}"
   setw window-status-current-format "${window_status_current_format}"
